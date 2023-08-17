@@ -7,8 +7,6 @@ from shutil import rmtree
 from .utils import *
 
 def extraxt_text(sessions: Annotated[str, Form()]) -> str:
-    print('*' * 100)
-    print(sessions)
     try:
         soup = BeautifulSoup(sessions, 'html.parser')
         labels =list(map(operator.attrgetter("text"), soup.find_all('span', {'class': 'd-inline'})))

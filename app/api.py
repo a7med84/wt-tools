@@ -61,7 +61,6 @@ def pdf_merger(url: Annotated[str, Depends(merge_pdf)]):
 
 @app.get("/download/{file_path:path}", response_class=FileResponse)
 async def download(file_path: str):
-    print(file_path)
     return FileResponse(file_path, media_type='application/octet-stream', filename=file_path.split('/')[-1])
 
 

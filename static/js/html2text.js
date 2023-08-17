@@ -40,7 +40,6 @@
             }
         ).then(data => {
             console.log("response recived");
-
             let is_success = false;
             let res = ''
             if (data.detail) {

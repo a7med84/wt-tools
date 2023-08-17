@@ -41,7 +41,6 @@
         }
         ).then(data => {
             console.log("response recived");
-            console.log(data);
             let result = ""
             if (data.detail) {
                 console.log("internal error");
