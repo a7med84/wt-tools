@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+    {% block style %}
+    {% endblock %}
+
+    {% block content %}
+        <label for="sessions">Input</label>
+        <div class="input-group mb-2">
+            <textarea class="form-control rounded" id="sessionsInput" rows="10"></textarea>
+        </div>
+        <button id="submitbtn" class="btn btn-primary rounded d-block" type="button">Extract Text</button>
+        <div class="mt-4">
+            <label for="sessions">Output</label>
+            <div class="text-wrap">
+                <div id="richTextDiv" class="form-control w-100" style="min-height: 20rem; text-align: justify;" dir="rtl"></div>
+                <div id="copyToClipboard-a" class="clipboard icon">
+                    <svg id="emptyClip" width="24" height="24" fill="currentColor" class="bi">
+                        <use xlink:href="#clipboard-empty" />
+                    </svg>
+                    <svg id="fillClip" width="24" height="24" fill="currentColor" class="bi text-success d-none">
+                        <use xlink:href="#clipboard-fill" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block script %}
+        <script src="{{ url_for('static', path='/js/html2text.js') }}"></script>
+    {% endblock %}
+
+    {% block svgdata %}
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="clipboard-empty" viewBox="0 0 16 16">
+                <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+            </symbol>
+            <symbol id="clipboard-fill" viewBox="0 0 16 16">
+                <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z"/>
+                <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z"/>
+                <path d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3Z"/>
+            </symbol>
+        </svg>
+    {% endblock %}
